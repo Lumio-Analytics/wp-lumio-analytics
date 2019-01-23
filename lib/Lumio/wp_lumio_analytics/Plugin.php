@@ -232,7 +232,7 @@ class Plugin
     {
         global $wp_version;
         $client = new \Lumio\IntegrationAPI\Client();
-        $integration = new \Lumio\IntegrationAPI\Model\Integration([
+        $integration = new \Lumio\IntegrationAPI\Model\Integration(array(
             'key'              => $this->_key,
             'url'              => home_url('/'),
             'platform'         => 'WordPress',
@@ -240,7 +240,7 @@ class Plugin
             'plugin'           => WLA_NAME,
             'plugin_version'   => WLA_VERSION,
             'status'           => $isActive
-        ]);
+        ));
 
         try {
             $result = $client->registerIntegration($integration);
