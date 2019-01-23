@@ -1,0 +1,19 @@
+{
+    "name": "lumioanalytics/wp-lumio-analytics",
+    "description": "Lumio analytics WordPress Plugin",
+    "type": "wordpress-plugin",
+    "authors": [
+        {
+            "name": "Mikel Martin",
+            "email": "mikel@tiralineasestudio.com"
+        }
+    ],
+    "require": {
+        "lumioanalytics/lia-php-client": "*@dev"
+    },
+    "scripts": {
+        "dist": [
+            "bash bin/build.sh"
+        ]
+    }
+}
