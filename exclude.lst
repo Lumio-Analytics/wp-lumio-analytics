@@ -6,3 +6,5 @@
 */bin/*
 *.sh
 *.lst
+*.git/*
+*/README.md

@@ -1,3 +1,4 @@
+<style>#wpcontent {padding-left: 0px !important;}</style>
 <iframe id="wla_frame" src="https://lumio-analytics.com/signup"  style="width:100%;" frameborder="no"></iframe>
 <script type="text/javascript">
     jQuery(function(){

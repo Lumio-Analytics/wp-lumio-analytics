@@ -1,4 +1,5 @@
-<iframe id="wla_frame" src="https://lumio-analytics.com/dashboard"  style="width:100%;height: 100%" frameborder="no"></iframe>
+<style>#wpcontent {padding-left: 0px !important;}</style>
+<iframe id="wla_frame" src="https://mod.lumio.page/dasb.html"  style="width:100%;height: auto" frameborder="no"></iframe>
 <script type="text/javascript">
     jQuery(function(){
         element = document.getElementById('wla_frame');
