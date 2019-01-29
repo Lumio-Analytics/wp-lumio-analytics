@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9b950e8e7b198ada9795eb0727c0b818",
+    "content-hash": "6b27654fbe91d56b87d70c1c3d99a52f",
     "packages": [
         {
             "name": "lumioanalytics/lia-php-client",
-            "version": "dev-master",
+            "version": "0.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Lumio-Analytics/lia-php-client.git",
-                "reference": "c5166fb26eeb26b48fda33d367a0493748e89eb2"
+                "reference": "717d7a4c9e3bd01e3bd535aa9abf420f0f81bcfa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Lumio-Analytics/lia-php-client/zipball/c5166fb26eeb26b48fda33d367a0493748e89eb2",
-                "reference": "c5166fb26eeb26b48fda33d367a0493748e89eb2",
+                "url": "https://api.github.com/repos/Lumio-Analytics/lia-php-client/zipball/717d7a4c9e3bd01e3bd535aa9abf420f0f81bcfa",
+                "reference": "717d7a4c9e3bd01e3bd535aa9abf420f0f81bcfa",
                 "shasum": ""
             },
             "require": {
@@ -55,15 +55,13 @@
                 "php",
                 "sdk"
             ],
-            "time": "2019-01-23T00:45:25+00:00"
+            "time": "2019-01-29T17:19:55+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "lumioanalytics/lia-php-client": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
