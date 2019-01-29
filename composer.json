@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "lumioanalytics/lia-php-client": "*@dev"
+        "lumioanalytics/lia-php-client": "^0.0"
     },
     "scripts": {
         "dist": [
