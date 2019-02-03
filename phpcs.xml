@@ -7,10 +7,10 @@
 
 	<!-- Exclude paths -->
 	<exclude-pattern>*/vendor/*</exclude-pattern>
-
+	<exclude-pattern>*/templates/*</exclude-pattern>
 	<!-- Configs -->
 	<config name="minimum_supported_wp_version" value="4.7" />
-	<config name="testVersion" value="5.2-"/>
+	<config name="testVersion" value="5.3-"/>
 
 	<!-- Rules -->
 	<rule ref="PHPCompatibility" />

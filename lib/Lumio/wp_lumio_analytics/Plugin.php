@@ -1,7 +1,11 @@
 <?php
+/**
+ * Lumio analytics
+ *
+ * @package lumioanalytics/wp-lumio-analytics
+ */
 
 namespace Lumio\wp_lumio_analytics;
-
 class Plugin {
 
 	private $_key          = null;
