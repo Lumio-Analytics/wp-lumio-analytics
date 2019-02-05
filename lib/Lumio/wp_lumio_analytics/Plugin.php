@@ -6,11 +6,29 @@
  */
 
 namespace Lumio\wp_lumio_analytics;
-class Plugin {
 
+/**
+ * Main Plugin class
+ */
+class Plugin {
+	/**
+	 * Tracking code.
+	 *
+	 * @var string
+	 */
 	private $_key          = null;
+	/**
+	 * Wether the key is valid
+	 *
+	 * @var boolean
+	 */
 	private $_is_valid_key = false;
 
+	/**
+	 * The message to be displayed.
+	 *
+	 * @var string
+	 */
 	protected $message = null;
 
 	/**
@@ -29,7 +47,11 @@ class Plugin {
 			add_action( 'wp_footer', array( $this, 'lumio_analytics_tracking_code' ) );
 		}
 	}
-
+	/**
+	 * Inserts the tracking code
+	 *
+	 * @return void
+	 */
 	public function lumio_analytics_tracking_code() {
 		if ( self::is_valid_key( $this->_key ) ) {
 			?>
@@ -41,7 +63,12 @@ class Plugin {
 			<?php
 		}
 	}
-
+	/**
+	 * Check if it is a valid key
+	 *
+	 * @param string $key key to check.
+	 * @return boolean
+	 */
 	private static function is_valid_key( $key ) {
 		return preg_match( '/^\w{40}$/', $key );
 	}
@@ -51,7 +78,7 @@ class Plugin {
 	 */
 	public static function action_activate() {
 		// Should we read any configuration from 3rd party?
-		// Set version as an option get_plugin_data function is not availiable at cron
+		// Set version as an option get_plugin_data function is not availiable at cron.
 		do_action( 'wla_activation' );
 	}
 
@@ -59,10 +86,14 @@ class Plugin {
 	 * Run once on plugin activation
 	 */
 	public static function action_deactivate() {
-		self::init()->registerLumioIntegration( false );
+		self::init()->register_lumio_integration( false );
 		update_option( 'wla_key', '' );
 	}
-
+	/**
+	 * Init function
+	 *
+	 * @return void
+	 */
 	public static function init() {
 		static $instance = null;
 
@@ -92,7 +123,7 @@ class Plugin {
 		add_menu_page(
 			__( 'Lumio', 'wla' ),
 			__( 'Lumio', 'wla' ),
-			'manage_options',
+			'read',
 			'wla_settings',
 			array( $this, 'settings_page' ),
 			$admin_icon,
@@ -100,7 +131,7 @@ class Plugin {
 		);
 	}
 
-	// Returns true if the current page is one of Lumio Analytics pages. Returns false if not
+	// Returns true if the current page is one of Lumio Analytics pages. Returns false if not.
 
 	/**
 	 * Gets the admin icon for the Lumio menu item
@@ -202,7 +233,11 @@ class Plugin {
 			include WLA_DIR . '/templates/lumio_settings.php';
 		}
 	}
-
+	/**
+	 * Check if it can be saved
+	 *
+	 * @return boolean
+	 */
 	protected function can_save_key() {
 		if ( isset( $_POST['wla_key'] ) ) {
 			$this->_key = $_POST['wla_key'];
@@ -210,17 +245,22 @@ class Plugin {
 				return __( 'Provide a valid key, please', 'wla' );
 			}
 			update_option( 'wla_key', $this->_key );
-			$this->registerLumioIntegration();
+			$this->register_lumio_integration();
 		} elseif ( isset( $_GET['wla_key'] ) ) {
-			$this->registerLumioIntegration( false );
+			$this->register_lumio_integration( false );
 			update_option( 'wla_key', '' );
 		} else {
 			return;
 		}
 		wp_redirect( admin_url( 'admin.php?page=wla_settings' ) );
 	}
-
-	protected function registerLumioIntegration( $isActive = true ) {
+	/**
+	 * Send registration to the API
+	 *
+	 * @param boolean $is_active Activate or deactivate.
+	 * @return void
+	 */
+	protected function register_lumio_integration( $is_active = true ) {
 		global $wp_version;
 		$client      = new \Lumio\IntegrationAPI\Client();
 		$integration = new \Lumio\IntegrationAPI\Model\Integration(
@@ -231,7 +271,7 @@ class Plugin {
 				'platform_version' => $wp_version,
 				'plugin'           => WLA_NAME,
 				'plugin_version'   => WLA_VERSION,
-				'status'           => $isActive,
+				'status'           => $is_active,
 			)
 		);
 
@@ -242,10 +282,16 @@ class Plugin {
 		}
 	}
 
+	/**
+	 * Adds warning
+	 *
+	 * @return void
+	 */
 	public function invalid_key_admin_menu() {
 		if ( ! $this->_is_valid_key ) {
 			$class   = 'notice notice-warning is-dismissible';
 			$url     = admin_url( 'admin.php?page=wla_settings' );
+			// translators: URL.
 			$message = sprintf( __( 'Please, set a valid Lumio tracking Key in <a href="%s">settings</a>', 'wla' ), $url );
 
 			printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), $message );

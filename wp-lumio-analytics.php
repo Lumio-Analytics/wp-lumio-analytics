@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Lumio analytics
- * Plugin URI: http://lumio-analytics.com/
+ * Plugin URI: https://modulo.lumio-analytics.com/worpress
  * Description: Add Tracking script for Lumio analytics and Informative panel Lumio analytic in detail.
  * Version: 1.0.0
  * Author: Lumio
- * Author URI: https://modulo.lumio-analytics.com/worpress
+ * Author URI: http://lumio-analytics.com/
  *
  * @package lumioanalytics/wp-lumio-analytics
  */
