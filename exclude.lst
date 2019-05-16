@@ -7,5 +7,4 @@
 *.sh
 *.lst
 *.git/*
-*/README.md
 .gitignore
