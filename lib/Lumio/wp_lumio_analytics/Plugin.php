@@ -224,7 +224,7 @@ class Plugin {
 	 */
 	public function settings_page() {
 		$message          = $this->message;
-		$wla_register_url = admin_url( 'admin.php?page=wla_settings&create_account=1' );
+		$wla_register_url = 'https://lumio-analytics.com/signup';
 		if ( $this->_is_valid_key ) {
 			include WLA_DIR . '/templates/lumio_panel.php';
 		} elseif ( isset( $_GET['create_account'] ) ) {
