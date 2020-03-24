@@ -187,7 +187,7 @@ class Plugin {
 	 */
 	public static function is_lumio_page() {
 
-		// Gravity Forms pages
+		// Lumio pages
 		$current_page = trim( strtolower( self::get( 'page' ) ) );
 		$wla_pages    = array( 'wla_settings' );
 
